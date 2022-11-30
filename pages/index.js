@@ -1,6 +1,8 @@
+
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { checkout } from '../checkout'
 
 export default function Home() {
   return (
@@ -18,44 +20,74 @@ export default function Home() {
 
 
         <div className={styles.grid}>
-          <a href="" className={styles.card}>
+          <div className={styles.card}>
             <h2>Iphone 13 Pro Max</h2>
-            <Image src='/images/apple.png' width={100} height={100} />
+            <Image src='/images/apple.png' width={100} height={100} alt={'phone'}/>
             <p>256gb 8gb ram</p>
-          </a>
+            <button onClick={()=>{
+              checkout({
+                lineItems:[
+                  {
+                    price:'price_1M9jM0SC1sOfLuRA6GMQ5OHP',
+                    quantity:1
+                  }
+                ]
+              }) 
+            }} className={styles.btn_style}>Buy</button>
+          </div>
+          
 
-          <a href="" className={styles.card}>
+          <div className={styles.card}>
             <h2>One Plus</h2>
-            <Image src='/images/huwaei.png' width={100} height={100} />
+            <Image src='/images/huwaei.png' width={100} height={100} alt={'phone'}/>
             <p>512gb 16gb ram</p>
-          </a>
+            <button className={styles.btn_style} onClick={()=>{
+              checkout({
+                lineItems:[
+                  {
+                    price:'price_1M9jN7SC1sOfLuRAkOefoOgE',
+                    quantity:1
+                  }
+                ]
+              }) 
+            }}>Buy</button>
+          </div>
 
-          <a href="" className={styles.card}>
+          <div className={styles.card}>
             <h2>Samsung F22</h2>
-            <Image src='/images/nokia.png' width={100} height={100} />
+            <Image src='/images/nokia.png' width={100} height={100} alt={'phone'}/>
             <p>128gb 4gb ram</p>
-          </a>
+            <button className={styles.btn_style} onClick={()=>{
+              checkout({
+                lineItems:[
+                  {
+                    price:'price_1M9jNkSC1sOfLuRAfkW4QCpl',
+                    quantity:1
+                  }
+                ]
+              }) 
+            }}>Buy</button>
+          </div>
 
-          <a href="" className={styles.card}>
+          <div className={styles.card}>
             <h2>Redmi 7i</h2>
-            <Image src='/images/redmi.png' width={100} height={100} />
+            <Image src='/images/redmi.png' width={100} height={100}  alt={'phone'}/>
             <p>32gb 16gb ram</p>
-          </a>
+            <button className={styles.btn_style} onClick={()=>{
+              checkout({
+                lineItems:[
+                  {
+                    price:'price_1M9jOESC1sOfLuRAuw9r2BJi',
+                    quantity:1
+                  }
+                ]
+              }) 
+            }}>Buy</button>
+          </div>
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      
     </div>
   )
 }
